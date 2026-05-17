@@ -2,3 +2,6 @@
 *.bin
 *.dat
 __pycache__/
+
+#Executables
+serial_scaler

@@ -1,6 +1,7 @@
 .venv
 *.bin
 *.dat
+.vscode
 __pycache__/
 
 #Executables

@@ -4,23 +4,23 @@ Test Results
 --------------------------------------------------
 __________________________________________________
 N = 1000000, D = 32, mode = 'standard'
-Took 0.316801 seconds to calculate statistics
-Writing to the output file took 0.456067 seconds
+Took 0.103269 seconds to calculate statistics
+Writing to the output file took 0.346605 seconds
 __________________________________________________
 N = 1000000, D = 32, mode = 'minmax'
-Took 0.320716 seconds to calculate statistics
-Writing to the output file took 0.526080 seconds
+Took 0.106092 seconds to calculate statistics
+Writing to the output file took 0.343970 seconds
 __________________________________________________
 N = 5000000, D = 64, mode = 'standard'
-Took 3.356604 seconds to calculate statistics
-Writing to the output file took 4.722771 seconds
+Took 1.123213 seconds to calculate statistics
+Writing to the output file took 3.581857 seconds
 __________________________________________________
 N = 5000000, D = 64, mode = 'minmax'
-Took 3.098210 seconds to calculate statistics
-Writing to the output file took 5.262595 seconds
-
+Took 1.126543 seconds to calculate statistics
+Writing to the output file took 3.736975 seconds
 
 */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -34,8 +34,8 @@ double get_current_time(){
     return t.tv_sec + t.tv_usec / 1000000.0;
 }
 
-void compute_block_statistics(double *buffer, long long current_rows, long long D, 
-    double *sum, double *sum_sq, double *min_val, double *max_val){
+void compute_block_statistics(double *restrict buffer, long long current_rows, long long D, 
+    double *restrict sum, double *restrict sum_sq, double *restrict min_val, double *restrict max_val){
     
     for(long long i=0; i<current_rows; i++){
         for(long long j=0; j<D; j++){
@@ -56,8 +56,8 @@ void compute_block_statistics(double *buffer, long long current_rows, long long 
 
 }
 
-void scale_block(double *buffer, long long current_rows, long long D, char *mode,
-    double *mean, double *std_dev, double *min_val, double *max_val){
+void scale_block(double *restrict buffer, long long current_rows, long long D, char *mode,
+    double *restrict mean, double *restrict std_dev, double *restrict min_val, double *restrict max_val){
 
         if(strcmp(mode, "standard") == 0){
             for(long long i=0; i<current_rows; i++){

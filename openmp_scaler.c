@@ -4,20 +4,15 @@ Test Results
 --------------------------------------------------
 __________________________________________________
 N = 1000000, D = 32, mode = 'standard'
-Took 0.316801 seconds to calculate statistics
-Writing to the output file took 0.456067 seconds
+
 __________________________________________________
 N = 1000000, D = 32, mode = 'minmax'
-Took 0.320716 seconds to calculate statistics
-Writing to the output file took 0.526080 seconds
+
 __________________________________________________
 N = 5000000, D = 64, mode = 'standard'
-Took 3.356604 seconds to calculate statistics
-Writing to the output file took 4.722771 seconds
+
 __________________________________________________
 N = 5000000, D = 64, mode = 'minmax'
-Took 3.098210 seconds to calculate statistics
-Writing to the output file took 5.262595 seconds
 
 
 */
